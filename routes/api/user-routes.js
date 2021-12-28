@@ -23,6 +23,12 @@ router.get('/', (req, res) => {
 		{
 		  model: Post,
 		  attributes: ['id', 'title', 'post_url', 'created_at']
+		},
+		{
+		  model: Post,
+		  attributes: ['title'],
+		  through: Vote,
+		  as: 'voted_posts'
 		}
 	  ]
 	})
@@ -119,3 +125,4 @@ router.get('/', (req, res) => {
   });
   
   module.exports = router;
+  
